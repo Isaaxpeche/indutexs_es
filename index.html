@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Indutexs — Gestión para empresas textiles</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/landing.css">
+<link rel="stylesheet" href="css/logo.css">
+</head>
+<body>
+
+<!-- PÁGINA DE PRESENTACIÓN -->
+<section id="landing">
+ <header class="lnav"><span class="logo" role="img" aria-label="Indutexs" style="--h:30px;color:var(--denim)"></span>
+  <nav><a href="#" data-go="features">Funciones</a><a href="#" data-go="how">Cómo funciona</a><a href="#" data-go="faq">Preguntas</a></nav>
+  </header>
+ <div class="lsec lhero">
+  <div><span class="eyebrow">Software para empresas textiles</span>
+   <h1 class="lh1">Toda tu confección, <em>en un solo sistema.</em></h1>
+   <p class="lead">Controla el inventario de telas, las órdenes de producción, los pedidos y la nómina de tus operarios desde cualquier dispositivo. Cada empresa trabaja en su propio espacio, con sus datos separados.</p>
+   <div class="lcta"><button class="lbtn big" data-go="login">Iniciar sesión</button><button class="lbtn ghost big" data-go="features">Ver qué puedes hacer</button><button class="lbtn big" data-go="solicitar">Quiero contratar INDUTEXS</button></div></div>
+  <div class="mock" aria-hidden="true">
+   <div class="mc a">Pedidos activos<b>12</b></div>
+   <div class="mc b">Stock bajo<br><b style="font-size:18px">Hilo blanco · 8 conos</b></div>
+   <div class="mc c">Producción de hoy<b>48 prendas</b></div></div>
+ </div>
+ <div class="lsec" id="solicitar"><h2 class="h2">¿Quieres implementar INDUTEXS?</h2><p class="lead">Déjanos tus datos y nos pondremos en contacto para conocer las necesidades de tu empresa.</p>
+  <form id="solicitudForm" class="formrow" style="max-width:850px"><label>Nombre de la empresa<input name="empresa" required maxlength="120" placeholder="Ej. Confecciones del Norte"></label><label>Representante o contacto<input name="representante" required maxlength="100" placeholder="Nombre completo"></label><label>Correo electrónico<input name="correo" type="email" required maxlength="160" placeholder="contacto@empresa.com"></label><label>Teléfono<input name="telefono" type="tel" maxlength="40" placeholder="Número de contacto"></label><label>Cantidad de empleados<select name="empleados"><option value="">Seleccionar</option><option>1–10</option><option>11–25</option><option>26–50</option><option>Más de 50</option></select></label><label style="grid-column:1/-1">¿Qué necesita tu empresa?<textarea name="necesidades" rows="3" maxlength="1000" placeholder="Cuéntanos brevemente qué procesos quieres administrar."></textarea></label><div class="fbtns" style="grid-column:1/-1"><button class="lbtn big" type="submit">Enviar solicitud</button><span id="solicitudMsg" role="status" style="align-self:center"></span></div></form></div>
+ <div class="lsec" id="features"><h2 class="h2">Lo que puedes hacer con Indutexs</h2><p class="lead">Todo el día a día del taller, sin cuadernos ni hojas de cálculo sueltas.</p>
+  <div class="fgrid">
+   <div class="fc"><i>01</i><h3>Inventario de telas e insumos</h3><p>Registra existencias, define un mínimo y recibe alerta cuando algo se esté acabando.</p></div>
+   <div class="fc"><i>02</i><h3>Órdenes de producción</h3><p>Controla tallas, cortes y el estado de avance de cada orden.</p></div>
+   <div class="fc"><i>03</i><h3>Pedidos y ventas</h3><p>Lleva a tus clientes, fechas de entrega y estados en un solo lugar.</p></div>
+   <div class="fc"><i>04</i><h3>Empleados y nómina</h3><p>Administra operarios, cargos y salarios base.</p></div>
+   <div class="fc"><i>05</i><h3>Multiempresa</h3><p>Cada empresa tiene su espacio: lo que registra una no lo ve otra.</p></div>
+   <div class="fc"><i>06</i><h3>En cualquier pantalla</h3><p>Funciona en computador, tablet y celular, desde el navegador.</p></div></div></div>
+ <div class="lsec" id="how"><h2 class="h2">Cómo empezar</h2>
+  <div class="steps"><div><h3>Recibe tus credenciales</h3><p>El administrador de tu empresa crea tu cuenta y te entrega un usuario y una contraseña inicial.</p></div><div><h3>Inicia sesión</h3><p>Ingresa con las credenciales asignadas. No necesitas registrarte desde la página pública.</p></div><div><h3>Organiza tu taller</h3><p>Accede únicamente a los módulos y funciones que tu administrador te haya autorizado.</p></div></div></div>
+ <div class="lsec" id="faq"><h2 class="h2">Preguntas frecuentes</h2>
+  <details><summary>¿Mis datos se mezclan con los de otras empresas?</summary><p>No. Cada empresa tiene su propio espacio y solo sus usuarios ven su información.</p></details>
+  <details><summary>¿Necesito instalar algo?</summary><p>No, funciona desde el navegador en computador, tablet o celular.</p></details>
+  <details><summary>¿Para qué tipo de empresa sirve?</summary><p>Está pensado para pequeñas y medianas empresas textiles y de confección.</p></details></div>
+ <footer class="lfoot"><span class="logo" role="img" aria-label="Indutexs" style="--h:20px;display:inline-block;vertical-align:middle"></span> · Gestión para empresas textiles · Proyecto Integrador I</footer>
+</section>
+
+<!-- INGRESO -->
+<section class="login hidden" id="login">
+  <div class="brand"><div><div class="logo" role="img" aria-label="Indutexs" style="--h:clamp(44px,8vw,96px)"></div>
+    <p>Cada empresa, su propio taller digital: inventario, producción, pedidos y nómina en un solo lugar.</p></div></div>
+  <div class="tape"></div>
+  <div class="form">
+    <h2 style="margin:0 0 22px">Iniciar sesión</h2>
+    <label for="usr">Usuario</label><input id="usr" placeholder="Usuario" autocomplete="username"><div class="msg" id="msgUsr"></div>
+    <label for="pwd">Contraseña</label><input id="pwd" type="password" placeholder="Contraseña" autocomplete="current-password"><div class="msg" id="msgPwd"></div>
+    <button class="btn" id="go">Ingresar</button>
+    <p class="note"><a href="#" id="backHome" style="color:var(--denim)">← Volver a la página principal</a></p>
+    <p class="note" id="hint">Ingresa con el usuario y la contraseña que te asignó el administrador.</p>
+  </div>
+</section>
+
+<!-- SISTEMA -->
+<div class="app hidden" id="app">
+  <nav id="dock"><div class="rail-wm logo" role="img" aria-label="Indutexs" style="color:var(--denim)"></div><div id="nav"></div><button class="out" id="out" title="Cerrar sesión">⏻<b>Salir</b></button></nav>
+  <main>
+    <div class="tag" id="tag"></div>
+    <div id="empFormWrap"></div>
+    <h1 id="title">Dashboard</h1>
+    <div id="view"></div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/data.js"></script>
+<script src="js/crud.js"></script>
+<script src="js/app.js"></script>
+<script src="js/usuarios.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/landing.js"></script>
+</body>
+</html>

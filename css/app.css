@@ -1,0 +1,268 @@
+/* Indutexs - Sistema: menú lateral, panel, tablas y formularios (responsive) */
+/* APP */
+.app{min-height:100vh}
+#dock{position:fixed;left:0;top:0;bottom:0;width:76px;background:var(--surface);border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;padding:18px 0;gap:6px;z-index:20;transition:width .25s}
+#dock .rail-wm{font-size:22px;color:var(--denim);margin-bottom:18px}
+#dock button{width:56px;height:52px;border:0;background:none;border-radius:12px;color:var(--muted);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:19px;transition:.2s}
+#dock button b{display:none;font-size:10px;font-weight:600}
+#dock button:hover{background:var(--denim-2);transform:scale(1.06)}
+#dock button[aria-current=page]{background:var(--denim);color:#fff}
+:root[data-theme="dark"] #dock button[aria-current=page],:root:not([data-theme="light"]) #dock button[aria-current=page]{color:#0f1626}
+#dock .out{margin-top:auto;font-size:18px}
+main{margin-left:76px;padding:28px clamp(16px,3vw,40px) 60px;min-width:0}
+@media (min-width:1200px){#dock{width:210px;align-items:flex-start;padding:24px 14px}#dock .rail-wm{padding-left:10px}#dock button{width:100%;flex-direction:row;justify-content:flex-start;gap:12px;padding:0 12px}#dock button b{display:block;font-size:13px}main{margin-left:210px}}
+
+.tag{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px dashed var(--denim);border-radius:99px;padding:7px 10px 7px 14px;font-size:12px;color:var(--muted);margin-bottom:6px}
+.tag select{border:0;background:none;font-weight:700;color:var(--ink)}
+h1{margin:0 0 16px;font-size:clamp(22px,3vw,30px)}
+
+.bento{display:grid;gap:14px;grid-template-columns:1.5fr 1fr;grid-template-areas:"hero stock" "mini stock" "table table"}
+.hero{grid-area:hero;background:var(--denim);color:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;min-height:150px}
+:root[data-theme="dark"] .hero,:root:not([data-theme="light"]) .hero{color:#0f1626}
+.hero b{font-family:Georgia,serif;font-size:clamp(40px,5vw,64px);line-height:1}
+.mini{grid-area:mini;display:flex;gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;flex:1;transition:.2s}
+.stat:hover{transform:translateY(-3px);box-shadow:0 10px 20px -12px rgb(0 0 0/.25)}
+.stat b{display:block;font-size:26px;font-family:Georgia,serif}
+.stat span{color:var(--muted);font-size:12px}
+.stockcard{grid-area:stock;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;overflow:auto}
+.stockcard h2{font-size:14px;margin:0 0 10px}
+.stockcard li{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.tablecard{grid-area:table;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:4px 0 8px;overflow-x:auto}
+.tablecard h2{font-size:14px;margin:0}
+.thead-row{display:flex;justify-content:space-between;align-items:center;margin:12px 16px}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:10px 16px;border-bottom:1px solid var(--line);font-size:13.5px}
+th{color:var(--muted);font-weight:500;font-size:12px}
+tr:hover td{background:var(--denim-2)}
+.chip{display:inline-block;padding:2px 9px;border-radius:99px;font-size:11px;background:var(--denim-2)}
+.chip.ok{color:var(--ok)}.chip.warn{color:var(--warn)}.chip.bad{color:var(--bad)}
+.solo{
+  grid-template-columns:minmax(0,1fr);
+  grid-template-areas:none;
+}
+.solo>*{
+  grid-area:auto!important;
+  min-width:0;
+}
+.solo .tablecard{grid-column:1/-1}
+.actions{white-space:nowrap;text-align:right}
+.icobtn{border:0;background:none;font-size:15px;padding:4px 7px;border-radius:6px;color:var(--muted);transition:.15s}
+.icobtn:hover{background:var(--denim-2);color:var(--ink)}
+.addbtn{border:1px dashed var(--denim);background:none;border-radius:99px;padding:7px 14px;font-size:12.5px;color:var(--ink);transition:.15s;white-space:nowrap}
+.addbtn:hover{background:var(--denim-2)}
+.formrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:14px;margin:0 16px 14px}
+.fld label{font-size:11px;color:var(--muted);display:block;margin-bottom:3px}
+.fld input,.fld select{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--surface)}
+.formrow .fbtns{display:flex;gap:8px;align-items:flex-end}
+.fbtns button{padding:9px 14px;border-radius:7px;border:0;font-size:13px}
+.fbtns .ok{background:var(--denim);color:#fff}
+:root[data-theme="dark"] .fbtns .ok,:root:not([data-theme="light"]) .fbtns .ok{color:#0f1626}
+.fbtns .cancel{background:var(--denim-2);color:var(--ink)}
+tr.editing td{padding:8px 10px;vertical-align:top}
+tr.editing input,tr.editing select{width:100%;padding:6px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+
+@media (max-width:1199px){.bento{grid-template-columns:1fr 1fr}}
+@media (max-width:899px){#dock{left:0;right:0;top:0;bottom:auto;width:auto;height:60px;flex-direction:row;border-right:0;border-bottom:1px solid var(--line);padding:0 10px;overflow-x:auto}
+ #dock .rail-wm{display:none}#dock button{flex-direction:row;gap:6px}main{margin-left:0;margin-top:60px}
+ .bento{grid-template-columns:1fr;grid-template-areas:none!important}.bento>*{grid-area:auto!important}.mini{flex-wrap:wrap}}
+@media (max-width:600px){
+ #dock{position:fixed;top:auto;bottom:14px;left:50%;transform:translateX(-50%);width:auto;height:auto;border:1px solid var(--line);border-radius:99px;padding:6px;box-shadow:0 10px 26px -10px rgb(0 0 0/.3);gap:2px}
+ #dock button{width:44px;height:44px;padding:0;border-radius:99px;font-size:17px}
+ #dock button b{display:none!important}
+ main{margin-top:0;padding-bottom:96px}
+ .tag{width:100%;justify-content:space-between}
+ .thead-row{flex-direction:column;align-items:stretch;gap:8px}
+ table,thead{display:none}
+ tbody,tr{display:block}
+ tr{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 12px;margin:0 12px 10px}
+ td{display:flex;justify-content:space-between;gap:10px;border-bottom:1px dashed var(--line);padding:8px 0}
+ tr:hover td{background:none}
+ td:last-child{border-bottom:0}
+ td::before{content:attr(data-label);color:var(--muted);font-size:11px}
+ .actions{justify-content:flex-end}
+ .tablecard{padding:12px 0}
+ .tablecard table{min-width:0}
+ tr.editing input,tr.editing select{max-width:140px}
+}
+.tag b{color:var(--ink);font-size:13px}
+@media (max-width:600px){#dock{max-width:calc(100vw - 16px);overflow-x:auto}}
+
+
+/* FIX RESPONSIVE: el contenedor de navegación también debe ser flex */
+#nav{
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  gap:6px;
+  width:100%;
+  min-width:0;
+  min-height:0;
+  flex:1 1 auto;
+}
+@media (max-width:1199px) and (min-width:900px){
+  #nav{width:100%}
+}
+@media (max-width:899px){
+  #dock{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:flex-start;
+    gap:6px;
+    max-width:100vw;
+    overflow-x:auto;
+    overflow-y:hidden;
+    white-space:nowrap;
+    scrollbar-width:thin;
+  }
+  #nav{
+    flex:0 0 auto;
+    flex-direction:row;
+    align-items:center;
+    width:max-content;
+    min-width:max-content;
+    gap:4px;
+  }
+  #dock button{
+    flex:0 0 44px;
+    width:44px;
+    min-width:44px;
+    height:44px;
+    flex-direction:column;
+  }
+  #dock .out{margin-top:0;margin-left:auto;flex:0 0 44px}
+}
+@media (max-width:600px){
+  #dock{
+    left:8px;
+    right:8px;
+    bottom:calc(8px + env(safe-area-inset-bottom, 0px));
+    top:auto;
+    transform:none;
+    width:auto;
+    max-width:none;
+    height:60px;
+    padding:6px;
+    border-radius:18px;
+    justify-content:flex-start;
+    gap:4px;
+  }
+  #nav{flex:1 1 auto;min-width:0;width:auto;overflow-x:auto;overflow-y:hidden}
+  #nav button{flex:0 0 44px}
+  #dock .out{margin-left:0}
+  main{margin-top:0;padding:16px 12px calc(92px + env(safe-area-inset-bottom, 0px))}
+  .bento{grid-template-columns:minmax(0,1fr)!important;gap:12px}
+  .bento>*{min-width:0;max-width:100%}
+  .mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .stat{min-width:0;padding:12px}
+  .formrow{grid-template-columns:minmax(0,1fr);margin-left:10px;margin-right:10px}
+  .formrow .fbtns{flex-wrap:wrap}
+  .tag{max-width:100%;flex-wrap:wrap}
+  .tag select{max-width:100%;min-width:0}
+  .tablecard{min-width:0;max-width:100%}
+  .stockcard{min-width:0}
+}
+
+/* Corrección definitiva móvil: navegación horizontal y tablas visibles */
+@media (max-width: 899px) {
+  #dock {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    width: 100%;
+    height: calc(64px + env(safe-area-inset-bottom, 0px));
+    min-height: 64px;
+    padding: 6px 8px calc(6px + env(safe-area-inset-bottom, 0px));
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow: hidden;
+    border-radius: 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 0;
+    box-shadow: 0 -5px 18px rgb(0 0 0 / .08);
+    z-index: 1000;
+  }
+  #dock .rail-wm { display: none !important; }
+  #dock #nav {
+    display: flex !important;
+    flex: 1 1 auto !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    width: 0 !important;
+    min-width: 0 !important;
+    height: 100%;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none;
+    white-space: nowrap;
+  }
+  #dock #nav::-webkit-scrollbar { display: none; }
+  #dock #nav button,
+  #dock button.out {
+    flex: 0 0 44px !important;
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    min-height: 44px;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 18px;
+  }
+  #dock #nav button b,
+  #dock button.out b { display: none !important; }
+  #dock button.out { margin-left: 0 !important; }
+  main {
+    width: 100%;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 16px 12px calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  #view, .app, .bento, .tablecard, .stockcard { min-width: 0; max-width: 100%; }
+  .bento { grid-template-columns: minmax(0, 1fr) !important; grid-template-areas: none !important; gap: 12px; }
+  .bento > * { grid-area: auto !important; width: 100%; min-width: 0; }
+  .mini { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat { min-width: 0; padding: 12px; }
+  .tag { width: 100%; max-width: 100%; flex-wrap: wrap; }
+  .tag select { min-width: 0; max-width: 100%; }
+  .thead-row { align-items: flex-start; flex-wrap: wrap; gap: 8px; }
+  .formrow { grid-template-columns: minmax(0, 1fr) !important; margin-left: 10px; margin-right: 10px; }
+  .formrow > * { min-width: 0; }
+  .formrow .fbtns { grid-column: 1 / -1; flex-wrap: wrap; }
+  .tablecard { overflow-x: auto; }
+  /* Antes se ocultaba la tabla completa junto con thead; eso hacía desaparecer los datos. */
+  .tablecard table, table { display: block !important; width: 100%; min-width: 0 !important; }
+  table thead { display: none !important; }
+  table tbody { display: block !important; width: 100%; }
+  table tbody tr { display: block !important; width: auto; min-width: 0; margin: 0 10px 10px; padding: 4px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table tbody td { display: flex !important; align-items: flex-start; justify-content: space-between; gap: 12px; min-width: 0; overflow-wrap: anywhere; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  table tbody td::before { content: attr(data-label); flex: 0 0 38%; color: var(--muted); font-size: 11px; }
+  table tbody td[colspan] { display: block !important; }
+  table tbody td[colspan]::before { content: none; }
+  table tbody td:last-child { border-bottom: 0; }
+  table tbody td.actions { flex-wrap: wrap; justify-content: flex-end; }
+  table tbody td.actions::before { margin-right: auto; }
+  tr:hover td { background: transparent !important; }
+}
+
+@media (max-width: 420px) {
+  h1 { font-size: 23px; overflow-wrap: anywhere; }
+  .mini { grid-template-columns: minmax(0, 1fr); }
+  .hero { padding: 18px; }
+  .thead-row { margin-left: 12px; margin-right: 12px; }
+  .addbtn { white-space: normal; }
+}

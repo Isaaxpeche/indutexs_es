@@ -1,0 +1,23 @@
+/* Indutexs - Pantalla de ingreso y registro de empresa */
+/* LOGIN */
+.login{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.brand{position:absolute;inset:0;background:var(--denim);color:#fff;clip-path:polygon(0 0,68% 0,52% 100%,0 100%);padding:64px 8% 64px 6%;display:flex;flex-direction:column;justify-content:center}
+:root[data-theme="dark"] .brand,:root:not([data-theme="light"]) .brand{color:#0f1626}
+.brand .wm{font-size:clamp(40px,6vw,78px);line-height:1}
+.brand p{max-width:30ch;font-size:17px;margin:14px 0 0;opacity:.92}
+.tape{position:absolute;top:0;bottom:0;left:calc(68% - 2px);width:4px;background:repeating-linear-gradient(180deg,var(--denim) 0 10px,transparent 10px 20px);clip-path:polygon(0 0,100% 0,-32% 100%,-132% 100%)}
+.form{position:relative;margin-left:auto;margin-right:6%;width:min(400px,88vw);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:36px;box-shadow:0 30px 60px -20px rgb(0 0 0/.35)}
+.tabs{display:flex;gap:4px;background:var(--denim-2);padding:4px;border-radius:10px;margin-bottom:22px}
+.tabs button{flex:1;border:0;background:none;padding:9px;border-radius:7px;color:var(--muted);transition:.2s}
+.tabs button[aria-selected=true]{background:var(--surface);color:var(--ink);font-weight:600;box-shadow:0 2px 8px -2px rgb(0 0 0/.2)}
+label{display:block;font-size:13px;color:var(--muted);margin:12px 0 5px}
+input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);transition:.15s}
+input:focus{border-color:var(--denim);background:var(--surface)}
+.err input{border-color:var(--bad)}
+.btn{margin-top:20px;width:100%;padding:12px;border:0;border-radius:8px;background:var(--denim);color:#fff;font-weight:600;transition:.15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 16px -6px var(--denim)}
+:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#0f1626}
+.note{font-size:12px;color:var(--muted);margin-top:12px}
+@media (max-width:760px){.brand{clip-path:none;position:static;padding:40px 28px;min-height:46vh}.tape{display:none}.login{flex-direction:column;align-items:stretch}.form{margin:-40px auto 32px;transform:none;width:min(420px,90vw)}}
+.pwwarn{margin-top:10px;padding:10px 12px;border-left:4px solid var(--denim);background:color-mix(in srgb,var(--denim) 22%,var(--surface));border-radius:8px;font-size:13px}
+.pwwarn b{display:block;color:var(--ink)}.pwwarn span{color:var(--muted);font-size:12px}
